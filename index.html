@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mr. Dip Narayan Dahal - English Teacher">
+<title>Mr. Dip Narayan Dahal</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f4f9;
+    color:#333;
+    line-height:1.7;
+}
+header{
+    background:#0056a3;
+    color:white;
+    text-align:center;
+    padding:30px 15px 25px;
+}
+header h1{margin:0;font-size:34px}
+header p{margin:6px 0 0;font-size:17px}
+
+nav{
+    background:#003d73;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+nav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+nav li{position:relative}
+nav a,nav button{
+    display:block;
+    padding:15px 19px;
+    border:0;
+    background:none;
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    font-family:inherit;
+}
+nav a:hover,nav button:hover{background:#0077cc}
+
+.dropdown{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    min-width:225px;
+    background:white;
+    box-shadow:0 5px 14px rgba(0,0,0,.22);
+    border-radius:0 0 7px 7px;
+    overflow:hidden;
+}
+.dropdown.show{display:block}
+.dropdown a{
+    color:#333;
+    background:white;
+    font-weight:normal;
+    padding:11px 16px;
+}
+.dropdown a:hover{
+    background:#eef6ff;
+    color:#0056a3;
+}
+
+.container{
+    max-width:950px;
+    margin:30px auto;
+    padding:30px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,.10);
+}
+.intro h2,.contact h2{
+    color:#0056a3;
+    margin-top:0;
+}
+.intro img{
+    width:175px;
+    height:175px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #0056a3;
+    float:left;
+    margin:0 25px 12px 0;
+}
+.intro p{text-align:justify}
+.clearfix::after{content:"";display:block;clear:both}
+
+.material-note{
+    margin-top:28px;
+    padding:18px;
+    background:#eef6ff;
+    border-left:5px solid #0056a3;
+    border-radius:6px;
+}
+.contact{
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid #ddd;
+}
+.contact a{color:#0056a3;text-decoration:none}
+.contact a:hover{text-decoration:underline}
+
+footer{
+    margin-top:30px;
+    padding:16px;
+    background:#0056a3;
+    color:white;
+    text-align:center;
+}
+footer p{margin:0}
+
+@media(max-width:700px){
+    header h1{font-size:27px}
+    nav ul{flex-direction:column}
+    nav li{width:100%}
+    nav a,nav button{
+        width:100%;
+        text-align:center;
+        border-top:1px solid rgba(255,255,255,.18);
+    }
+    .dropdown{
+        position:static;
+        width:100%;
+        box-shadow:none;
+        border-radius:0;
+    }
+    .dropdown a{text-align:center}
+    .container{
+        margin:15px;
+        padding:20px;
+    }
+    .intro img{
+        width:135px;
+        height:135px;
+        margin:0 18px 10px 0;
+    }
+}
+
+/* Tense exercise styles */
+.tense-exercises { margin-top: 25px; }
+.exercise { background: #fff; border: 1px solid #d9e6f2; border-left: 5px solid #0056a3; border-radius: 10px; margin: 14px 0; overflow: hidden; box-shadow: 0 2px 7px rgba(0,0,0,.06); }
+.exercise button.question { width: 100%; text-align: left; border: 0; background: #f7fbff; color: #123; padding: 16px 18px; font-size: 16px; cursor: pointer; font-weight: 600; }
+.exercise button.question:hover { background: #edf6ff; }
+.answer { display: none; padding: 13px 18px 16px; background: #fff; border-top: 1px solid #e4edf5; line-height: 1.6; }
+.answer.show { display: block; }
+.answer strong { color: #0056a3; }
+.hint { font-size: 14px; color: #666; font-weight: normal; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Mr. Dip Narayan Dahal</h1>
+    <p>English Teacher</p>
+</header>
+
+<nav>
+<ul>
+    <li>
+        <button type="button" onclick="toggleMenu('grammarMenu')">Grammar ▼</button>
+        <div class="dropdown" id="grammarMenu">
+            <a href="#tense">Tense</a>
+            <a href="#voice">Voice</a>
+            <a href="#reported-speech">Reported Speech</a>
+            <a href="#articles">Articles</a>
+            <a href="#prepositions">Prepositions</a>
+            <a href="#conditionals">Conditionals</a>
+            <a href="#causative-verbs">Causative Verbs</a>
+            <a href="#tag-questions">Tag Questions</a>
+            <a href="#relative-clauses">Relative Clauses</a>
+            <a href="#conjunctions">Conjunctions</a>
+            <a href="#reason-connections">Reason Connections</a>
+        </div>
+    </li>
+
+    <li>
+        <a href="#" onclick="openEmbeddedPDF('Book_10.pdf'); return false;">English Book</a>
+    </li>
+
+    <li>
+        <button type="button" onclick="toggleMenu('questionsMenu')">Old Questions ▼</button>
+        <div class="dropdown" id="questionsMenu">
+            <a href="#" onclick="openEmbeddedPDF('English 1.pdf'); return false;">English 1</a>
+            <a href="#" onclick="openEmbeddedPDF('English 2.pdf'); return false;">English 2</a>
+            <a href="#" onclick="openEmbeddedPDF('English 3.pdf'); return false;">English 3</a>
+            <a href="#" onclick="openEmbeddedPDF('Maths.pdf'); return false;">Maths</a>
+            <a href="#" onclick="openEmbeddedPDF('Science.pdf'); return false;">Science</a>
+            <a href="#" onclick="openEmbeddedPDF('Social.pdf'); return false;">Social</a>
+        </div>
+    </li>
+
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<main class="container">
+
+<section class="intro clearfix" id="about">
+    <h2>Introduction</h2>
+    <img src="dip.jpg" alt="Mr. Dip Narayan Dahal">
+    <p>
+        Hello! I am Mr. Dip Narayan Dahal, an English teacher at
+        Shree Himalaya Secondary School, Nishankhe, Okhaldhunga.
+        I teach English to students from Class 9 to Class 12.
+        With more than a decade of teaching experience, I am
+        passionate about teaching English and helping students
+        develop confidence, accuracy and creativity in language use.
+    </p>
+    <p>
+        This website is designed as a learning resource for students.
+        It will provide useful English grammar lessons, English
+        learning materials, books and previous examination questions
+        in one convenient place.
+    </p>
+</section>
+
+<section class="material-note" id="english-book">
+    <h2>English Book</h2>
+    <p>
+        The English Book section is ready for the CDC English book
+        and other study materials. The book can be added here when
+        its PDF is uploaded.
+    </p>
+</section>
+
+<!-- Tense exercises -->
+<section class="material-note tense-exercises" id="tense">
+    <h2>Tense – Exercises</h2>
+    <p>Click a question to see its answer. Click the same question again to hide the answer.</p>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans1')">1. She _____ to school every day. (go)</button>
+        <div class="answer" id="ans1"><strong>Answer:</strong> She <b>goes</b> to school every day. <span class="hint">(Simple Present)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans2')">2. They _____ football when it started to rain. (play)</button>
+        <div class="answer" id="ans2"><strong>Answer:</strong> They <b>were playing</b> football when it started to rain. <span class="hint">(Past Continuous)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans3')">3. I _____ my homework already. (finish)</button>
+        <div class="answer" id="ans3"><strong>Answer:</strong> I <b>have finished</b> my homework already. <span class="hint">(Present Perfect)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans4')">4. When we arrived, the film _____. (start)</button>
+        <div class="answer" id="ans4"><strong>Answer:</strong> When we arrived, the film <b>had started</b>. <span class="hint">(Past Perfect)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans5')">5. Look! The baby _____. (sleep)</button>
+        <div class="answer" id="ans5"><strong>Answer:</strong> Look! The baby <b>is sleeping</b>. <span class="hint">(Present Continuous)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans6')">6. We _____ Pokhara next week. (visit)</button>
+        <div class="answer" id="ans6"><strong>Answer:</strong> We <b>will visit</b> Pokhara next week. <span class="hint">(Simple Future)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans7')">7. He _____ here for five years. (work)</button>
+        <div class="answer" id="ans7"><strong>Answer:</strong> He <b>has been working</b> here for five years. <span class="hint">(Present Perfect Continuous)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans8')">8. By next month, she _____ the course. (complete)</button>
+        <div class="answer" id="ans8"><strong>Answer:</strong> By next month, she <b>will have completed</b> the course. <span class="hint">(Future Perfect)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans9')">9. I _____ dinner when my friend called me. (cook)</button>
+        <div class="answer" id="ans9"><strong>Answer:</strong> I <b>was cooking</b> dinner when my friend called me. <span class="hint">(Past Continuous)</span></div>
+    </div>
+
+    <div class="exercise">
+        <button class="question" type="button" onclick="toggleAnswer('ans10')">10. If you study hard, you _____ the exam. (pass)</button>
+        <div class="answer" id="ans10"><strong>Answer:</strong> If you study hard, you <b>will pass</b> the exam. <span class="hint">(First Conditional)</span></div>
+    </div>
+</section>
+
+<section class="material-note tense-exercises" id="voice">
+    <h2>Voice – Exercises</h2>
+    <p>Click a question to show the answer. Click it again to hide the answer.</p>
+
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns1')">1. The teacher teaches English every day. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns1"><strong>Answer:</strong> English is taught by the teacher every day. <em>(Simple Present)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns2')">2. The police arrested the thief yesterday. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns2"><strong>Answer:</strong> The thief was arrested by the police yesterday. <em>(Simple Past)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns3')">3. They will build a new bridge next year. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns3"><strong>Answer:</strong> A new bridge will be built by them next year. <em>(Simple Future)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns4')">4. The students are writing a test now. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns4"><strong>Answer:</strong> A test is being written by the students now. <em>(Present Continuous)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns5')">5. The workers were repairing the road. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns5"><strong>Answer:</strong> The road was being repaired by the workers. <em>(Past Continuous)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns6')">6. She has completed the project. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns6"><strong>Answer:</strong> The project has been completed by her. <em>(Present Perfect)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns7')">7. They had finished the work before sunset. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns7"><strong>Answer:</strong> The work had been finished by them before sunset. <em>(Past Perfect)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns8')">8. She will have completed the course by June. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns8"><strong>Answer:</strong> The course will have been completed by her by June. <em>(Future Perfect)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns9')">9. The company can solve this problem. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns9"><strong>Answer:</strong> This problem can be solved by the company. <em>(Modal)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns10')">10. Somebody has stolen my bicycle. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns10"><strong>Answer:</strong> My bicycle has been stolen. <em>(Somebody)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns11')">11. Nobody has answered my question. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns11"><strong>Answer:</strong> My question has not been answered by anybody. <em>(Nobody)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns12')">12. People speak English all over the world. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns12"><strong>Answer:</strong> English is spoken all over the world. <em>(People)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns13')">13. Close the door. <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns13"><strong>Answer:</strong> Let the door be closed. <em>(Command / Imperative)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns14')">14. Does the teacher teach English? <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns14"><strong>Answer:</strong> Is English taught by the teacher? <em>(Yes/No Question)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns15')">15. Who wrote this letter? <span>(Change into Passive Voice)</span></button><div class="answer" id="voiceAns15"><strong>Answer:</strong> By whom was this letter written? <em>(WH-Question)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('voiceAns16')">16. The room was cleaned by Sita. <span>(Change into Active Voice)</span></button><div class="answer" id="voiceAns16"><strong>Answer:</strong> Sita cleaned the room. <em>(Passive → Active)</em></div></div>
+</section>
+
+<section class="material-note tense-exercises" id="reported-speech">
+    <h2>Reported Speech – Exercises</h2>
+    <p>Change the following sentences into Indirect Speech. Click a question to show the answer. Click it again to hide the answer.</p>
+
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns1')">1. Ram said, “I am very busy.” <span>(Statement)</span></button><div class="answer" id="reportedAns1"><strong>Answer:</strong> Ram said that he was very busy. <em>(Statement)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns2')">2. Sita said to me, “I have finished my homework.” <span>(Statement)</span></button><div class="answer" id="reportedAns2"><strong>Answer:</strong> Sita told me that she had finished her homework. <em>(Statement)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns3')">3. The teacher said to the students, “Open your books.” <span>(Positive Command)</span></button><div class="answer" id="reportedAns3"><strong>Answer:</strong> The teacher told the students to open their books. <em>(Positive Command)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns4')">4. The teacher said to the students, “Do not make a noise.” <span>(Negative Command)</span></button><div class="answer" id="reportedAns4"><strong>Answer:</strong> The teacher told the students not to make a noise. <em>(Negative Command)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns5')">5. He said to me, “Do you know my brother?” <span>(Yes/No Question)</span></button><div class="answer" id="reportedAns5"><strong>Answer:</strong> He asked me if I knew his brother. <em>(Yes/No Question)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns6')">6. She said to me, “Where do you live?” <span>(WH-Question)</span></button><div class="answer" id="reportedAns6"><strong>Answer:</strong> She asked me where I lived. <em>(WH-Question)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns7')">7. He said to me, “Water freezes at zero degree Celsius.” <span>(Universal Truth)</span></button><div class="answer" id="reportedAns7"><strong>Answer:</strong> He told me that water freezes at zero degree Celsius. <em>(Universal Truth – the tense does not change because it is a universal/scientific truth.)</em></div></div>
+    <div class="exercise"><button class="question" type="button" onclick="toggleAnswer('reportedAns8')">8. Ram said to me, “I will help you tomorrow.” <span>(Statement)</span></button><div class="answer" id="reportedAns8"><strong>Answer:</strong> Ram told me that he would help me the next day. <em>(Statement)</em></div></div>
+</section>
+
+<!-- Grammar sections will be filled with lessons next -->
+<section class="material-note">
+    <h2>Grammar</h2>
+    <p>
+        The 11 grammar topics are arranged in the Grammar menu above.
+        Detailed lessons and exercises can be added to each topic
+        without changing the main website design.
+    </p>
+    <p>
+        Tense • Voice • Reported Speech • Articles • Prepositions •
+        Conditionals • Causative Verbs • Tag Questions • Relative Clauses •
+        Conjunctions • Reason Connections
+    </p>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Information</h2>
+    <p><strong>Email:</strong>
+        <a href="mailto:dndmultiple@gmail.com">dndmultiple@gmail.com</a>
+    </p>
+    <p><strong>Mobile:</strong>
+        <a href="tel:+9779842803584">00977-9842803584</a>
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Mr. Dip Narayan Dahal. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(id){
+    const menu=document.getElementById(id);
+    document.querySelectorAll('.dropdown').forEach(function(item){
+        if(item!==menu) item.classList.remove('show');
+    });
+    menu.classList.toggle('show');
+}
+
+document.addEventListener('click',function(event){
+    if(!event.target.closest('nav')){
+        document.querySelectorAll('.dropdown').forEach(function(menu){
+            menu.classList.remove('show');
+        });
+    }
+});
+</script>
+
+
+<script>
+function openEmbeddedPDF(name){
+    const files = {
+        'Book_10.pdf': 'Book_10.pdf',
+        'English 1.pdf': 'English 1.pdf',
+        'English 2.pdf': 'English 2.pdf',
+        'English 3.pdf': 'English 3.pdf',
+        'Maths.pdf': 'Maths.pdf',
+        'Science.pdf': 'Science.pdf',
+        'Social.pdf': 'Social.pdf'
+    };
+    const file = files[name];
+    if(!file){ alert("This PDF is not available."); return false; }
+    window.open(file, "_blank");
+    return false;
+}
+
+function toggleAnswer(id){
+    const answer = document.getElementById(id);
+    if(answer) answer.classList.toggle('show');
+}
+
+function openEmbeddedPDF(name){
+    const b64 = embeddedPDFs[name];
+    if(!b64){ alert("This PDF is not available."); return false; }
+
+    try {
+        const binary = atob(b64);
+        const bytes = new Uint8Array(binary.length);
+        for(let i=0; i<binary.length; i++) bytes[i] = binary.charCodeAt(i);
+
+        const blob = new Blob([bytes], {type:"application/pdf"});
+        const url = URL.createObjectURL(blob);
+
+        // Try a new tab first. If Chrome blocks it, open in the same tab.
+        const newWindow = window.open(url, "_blank");
+        if(!newWindow) {
+            window.location.href = url;
+        }
+
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 120000);
+    } catch(err) {
+        alert("Unable to open this PDF in Chrome.");
+        console.error(err);
+    }
+    return false;
+}
+</script>
+
+</body>
+</html>
