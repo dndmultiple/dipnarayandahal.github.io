@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Dip Narayan Dahal - English Teacher</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f9;color:#333}
+header{background:#0056a3;color:white;text-align:center;padding:20px 10px}
+nav{background:#003d73;text-align:center;padding:0}
+nav ul{margin:0;padding:0;list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
+nav ul li{margin:0;position:relative}
+nav ul li a,nav ul li button{display:block;color:white;background:none;border:none;text-decoration:none;padding:15px 20px;font-weight:bold;font-size:16px;cursor:pointer;font-family:Arial,sans-serif}
+nav ul li a:hover,nav ul li button:hover{background:#0077cc}
+.questions-menu{display:none;position:absolute;top:100%;left:0;min-width:190px;background:white;box-shadow:0 4px 8px rgba(0,0,0,.2);z-index:1000}
+.questions-menu a{color:#333!important;background:white!important;text-align:left;padding:12px 15px!important;font-weight:normal!important;white-space:nowrap}
+.questions-menu a:hover{background:#f0f0f0!important;color:#0056a3!important}
+.questions-menu.show{display:block}
+.container{max-width:900px;margin:20px auto;padding:20px;background:white;box-shadow:0 4px 8px rgba(0,0,0,.1);border-radius:8px}
+.profile{text-align:center}
+.profile img{width:150px;height:150px;border-radius:50%;margin-bottom:20px;object-fit:cover}
+.contact-info{margin-top:20px}
+.contact-info p{margin:5px 0}
+footer{text-align:center;margin-top:20px;padding:10px;background:#0056a3;color:white}
+@media(max-width:700px){
+nav ul{flex-direction:column}
+nav ul li a,nav ul li button{width:100%;box-sizing:border-box;border-top:1px solid rgba(255,255,255,.2)}
+.questions-menu{position:static;width:100%;box-shadow:none}
+.questions-menu a{text-align:center}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Mr. Dip Narayan Dahal</h1>
+<p>Experienced English Teacher</p>
+</header>
+<nav>
+<ul>
+<li><a href="#">Class 10 CDC Book</a></li>
+<li><a href="#">CDC's Teacher's Guide English 10</a></li>
+<li>
+<button type="button" onclick="toggleQuestions()">Old Questions ▼</button>
+<div class="questions-menu" id="questionsMenu">
+<a href="English%201.pdf" target="_blank">English 1</a>
+<a href="English%202.pdf" target="_blank">English 2</a>
+<a href="English%203.pdf" target="_blank">English 3</a>
+<a href="Maths.pdf" target="_blank">Maths</a>
+<a href="Science.pdf" target="_blank">Science</a>
+<a href="Social.pdf" target="_blank">Social</a>
+</div>
+</li>
+</ul>
+</nav>
+<div class="container">
+<div class="profile">
+<img src="dip.jpg" alt="Mr. Dip Narayan Dahal Photo">
+<h2>About Me</h2>
+<p>Hello! I am Mr. Dip Narayan Dahal, an English teacher at Shree Himalaya Secondary School, Nishankhe, Okhaldhunga. I teach English to students from Class 9 to Class 12. With more than a decade of teaching experience, I am passionate about inspiring and empowering students through education.</p>
+</div>
+<div class="contact-info">
+<h2>Contact Information</h2>
+<p><strong>Email:</strong> <a href="mailto:dndmultiple@gmail.com">dndmultiple@gmail.com</a></p>
+<p><strong>Mobile:</strong> <a href="tel:+9779842803584">00977-9842803584</a></p>
+</div>
+</div>
+<footer><p>&copy; 2025 Mr. Dip Narayan Dahal. All rights reserved.</p></footer>
+<script>
+function toggleQuestions(){
+document.getElementById("questionsMenu").classList.toggle("show");
+}
+document.addEventListener("click",function(event){
+const menu=document.getElementById("questionsMenu");
+if(!event.target.closest(".questions-menu")&&!event.target.closest("button"))menu.classList.remove("show");
+});
+</script>
+</body>
+</html>
